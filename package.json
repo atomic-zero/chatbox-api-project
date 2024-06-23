@@ -1,19 +1,15 @@
 {
-  "name": "nodejs-swagger-example",
+  "name": "my-api",
   "version": "1.0.0",
-  "description": "Example Node.js project with Swagger integration",
-  "main": ".js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [
-    "node",
-    "swagger",
-    "express"
-  ],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2",
-    "swagger-jsdoc": "^7.0.0",
-    "swagger-ui-express": "^4.1.6"
+    "express": "^4.17.1",
+    "swagger-ui-express": "^5.0.1"
   }
 }

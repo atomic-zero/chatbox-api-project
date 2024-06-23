@@ -1,22 +1,21 @@
+// app.js
 const express = require('express');
-const swaggerUI = require('swagger-ui-express');
-const swaggerSpec = require('./swagger'); // Path to your swagger configuration
-const fs = require('fs');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 const path = require('path');
 
 const app = express();
 
-// Serve Swagger documentation
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+const options = {
+  customCssUrl: '/custom.css',
+};
 
-// Load routes dynamically
-const routesDirectory = path.join(__dirname, 'routes');
-fs.readdirSync(routesDirectory).forEach(file => {
-  const routePath = path.join(routesDirectory, file);
-  app.use('/', require(routePath));
-});
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+// Serve custom CSS
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
+  console.log('API documentation available at http://localhost:3000/api-docs');
 });
