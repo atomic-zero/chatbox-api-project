@@ -7,16 +7,67 @@
   },
   "host": "localhost:3000",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": ["http", "https"],
   "paths": {
     "/hello": {
       "get": {
         "summary": "Returns a greeting",
+        "description": "This endpoint returns a greeting message.",
+        "tags": ["Greeting"],
         "responses": {
           "200": {
             "description": "A successful response",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "Hello, World!"
+            }
+          }
+        }
+      }
+    },
+    "/goodbye": {
+      "get": {
+        "summary": "Returns a farewell",
+        "description": "This endpoint returns a farewell message.",
+        "tags": ["Farewell"],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "schema": {
+              "type": "string",
+              "example": "Goodbye, World!"
+            }
+          }
+        }
+      }
+    },
+    "/echo": {
+      "get": {
+        "summary": "Echoes a message",
+        "description": "This endpoint echoes the message provided as a query parameter.",
+        "tags": ["Echo"],
+        "parameters": [
+          {
+            "name": "message",
+            "in": "query",
+            "description": "Message to echo",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "schema": {
+              "type": "string",
+              "example": "You said: Hello!"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "type": "string",
+              "example": "Bad request: 'message' query parameter is required."
             }
           }
         }
