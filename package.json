@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-swagger-example",
+  "version": "1.0.0",
+  "description": "Example Node.js project with Swagger integration",
+  "main": ".js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "node",
+    "swagger",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.17.2",
+    "swagger-jsdoc": "^7.0.0",
+    "swagger-ui-express": "^4.1.6"
+  }
+}

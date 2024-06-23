@@ -1,4 +1,4 @@
-const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerJsdoc = require('swagger-jsdoc');
 
 const swaggerDefinition = {
   openapi: '3.0.0',
@@ -7,12 +7,20 @@ const swaggerDefinition = {
     version: '1.0.0',
     description: 'My API Description',
   },
+  servers: [
+    {
+      url: 'http://localhost:3000',
+      description: 'Development server',
+    },
+  ],
 };
 
 const options = {
   swaggerDefinition,
+  // Paths to files containing OpenAPI definitions
   apis: ['./routes/*.js'],
 };
 
-const swaggerSpec = swaggerJSDoc(options);
+const swaggerSpec = swaggerJsdoc(options);
+
 module.exports = swaggerSpec;
